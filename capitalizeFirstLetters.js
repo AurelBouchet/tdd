@@ -1,7 +1,12 @@
 const assert = require('assert');
-assert.equal(Math.max(1, 5, 9), 9);
 
-function capitalizeFirst(input) {
-  return input[0].toUpperCase() + input.slice(1);
+function capitalizeFirstLetters(input) {
+  return input.length > 0 ? input[0].toUpperCase() + input.slice(1) : '';
 }
-assert.strictEqual(typeof capitalizeFirst, 'function');
+assert.strictEqual(typeof capitalizeFirstLetters, 'function');
+
+assert.strictEqual(capitalizeFirstLetters('bonjour'), 'Bonjour');
+
+assert.strictEqual(capitalizeFirstLetters('b'), 'B');
+
+assert.strictEqual(capitalizeFirstLetters(''), '');
