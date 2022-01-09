@@ -1,37 +1,32 @@
 const assert = require('assert');
 
-function capitalizeAllFirstLetters(words) {
+//TDD intro
+function capitalizeFirstLetters(words) {
   if (words != '') {
     let capitalizedLetter = words.split(' ');
-    if (words.length > 1) {
+    if (words.length != 1) {
       for (let i = 0; i < capitalizedLetter.length; i++) {
         capitalizedLetter[i] =
           capitalizedLetter[i][0].toUpperCase() + capitalizedLetter[i].slice(1);
       }
       return capitalizedLetter.join(' ');
     } else {
-      return capitalizedLetter.toUpperCase();
+      return capitalizedLetter[0].toUpperCase();
     }
   } else {
     return '';
   }
 }
 
-// assert.strictEqual(typeof capitalizeFirstLetters, 'function');
+assert.strictEqual(capitalizeFirstLetters('bonjour'), 'Bonjour');
 
-assert.strictEqual(capitalizeAllFirstLetters('bonjour'), 'Bonjour');
+assert.strictEqual(capitalizeFirstLetters('b'), 'B');
 
-//assert.strictEqual(capitalizeAllFirstLetters('b'), 'B');
+assert.strictEqual(capitalizeFirstLetters(''), '');
 
-assert.strictEqual(capitalizeAllFirstLetters(''), '');
-// //
+assert.strictEqual(capitalizeFirstLetters('hello world'), 'Hello World');
 
-// function capitalizeAllFirstLetters(words) {
-//   let capitalizedLetter = words.split(' ');
-//   for (let i = 0; i < capitalizedLetter.length; i++) {
-//     capitalizedLetter[i] =
-//       capitalizedLetter[i][0].toUpperCase() + capitalizedLetter[i].slice(1);
-//   }
-//   return capitalizedLetter.join(' ');
-// }
-assert.strictEqual(capitalizeAllFirstLetters('hello world'), 'Hello World');
+assert.strictEqual(
+  capitalizeFirstLetters('welcome to my page'),
+  'Welcome To My Page'
+);
